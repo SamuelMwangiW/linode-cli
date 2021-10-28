@@ -1,9 +1,9 @@
 name: Main
 
 on:
-    push:
-        tags:
-            - *
+  push:
+    tags:
+      - v.*
 
 jobs:
     build:
