@@ -1,0 +1,25 @@
+name: Main
+
+on: push
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+              with:
+                php-version: '8.0'
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Install Dependencies
+              run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+            - name: Build
+              run: echo ${{ github.sha }} > Release.txt
+            - name: Test
+              run: cat Release.txt
+            - name: Release
+              uses: softprops/action-gh-release@v1
+              if: startsWith(github.ref, 'refs/tags/')
+              with:
+                  files: |
+                      builds/linode-cli
