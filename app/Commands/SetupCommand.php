@@ -15,7 +15,7 @@ class SetupCommand extends LinodeCommand
     public function handle(): int
     {
         $token = $this->ask(
-            question: '<fg=yellow>‣</> <options=bold>Please enter your Personal Access token</>',
+            question: '<fg=yellow>‣</> <options=bold>Please enter your Linode Personal Access token</>',
         );
 
         $this->request(fn() => $this->config->set('token', $token));
