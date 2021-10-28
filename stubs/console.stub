@@ -1,0 +1,20 @@
+<?php
+
+namespace DummyNamespace;
+
+use App\Commands\LinodeCommand;
+use SamuelMwangiW\Linode\Linode;
+
+class DummyClass extends LinodeCommand
+{
+    protected $signature = 'dummy:command';
+
+    protected $description = 'Command description';
+
+    public function handle(): int
+    {
+        //
+
+        return self::SUCCESS;
+    }
+}
