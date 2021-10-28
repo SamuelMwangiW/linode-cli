@@ -8,7 +8,6 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
-        if: github.event.base_ref == 'refs/heads/main'
         steps:
             - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
               with:
